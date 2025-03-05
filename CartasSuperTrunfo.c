@@ -27,7 +27,6 @@ int main() {
     float pib2;
     int atracoes2;
 
-    
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
     // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
@@ -56,7 +55,6 @@ int main() {
     scanf("%d", &atracoes1);
 
     printf("\n--------------------------------------------------------\n\n");
-
     
     printf("DADOS DA CARTA 2: \n");
         
@@ -80,8 +78,6 @@ int main() {
     
     printf("Informe o número de pontos turísticos na cidade 2: ");
     scanf("%d", &atracoes2);
-
-    
     
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
@@ -113,25 +109,3 @@ int main() {
 
     return 0;
 }
-
-
-/**
- * Carta 1:
- * Estado: A
- * Código: A01
- * Nome da Cidade: São Paulo
- * População: 12325000
- * Área: 1521.11 km²
- * PIB: 699.28 bilhões de reais
- * Número de Pontos Turísticos: 50
- * 
- * 
- * Carta 2:
- * Estado: B
- * Código: B02
- * Nome da Cidade: Rio de Janeiro
- * População: 6748000
- * Área: 1200.25 km²
- * PIB: 300.50 bilhões de reais
- * Número de Pontos Turísticos: 30 
- */
