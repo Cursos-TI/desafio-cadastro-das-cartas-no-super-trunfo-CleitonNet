@@ -61,8 +61,8 @@ int main() {
     scanf("%d", &atracoes1);
 
     // Calculos da carta 1
-    densidade1 = populacao1 / area1;
-    pibPerCapta1 = populacao1 / pib1;
+    densidade1 = (float)populacao1 / area1;
+    pibPerCapta1 = pib1 / populacao1;
     superPoder1 = (float)populacao1 + area1 + pib1 + (float)atracoes1 + pibPerCapta1 + (1/densidade1);
 
     printf("\n--------------------------------------------------------\n\n");
@@ -91,8 +91,8 @@ int main() {
     scanf("%d", &atracoes2);
     
     // Calculos da carta 2
-    densidade2   = populacao2 / area2;
-    pibPerCapta2 = populacao2 / pib2;
+    densidade2 = (float)populacao2 / area2;
+    pibPerCapta2 = pib2 / populacao2;
     superPoder2  = (float)populacao2 + area2 + pib2 + (float)atracoes2 + pibPerCapta2 + (1/densidade2);
 
     // Exibição dos Dados das Cartas:
