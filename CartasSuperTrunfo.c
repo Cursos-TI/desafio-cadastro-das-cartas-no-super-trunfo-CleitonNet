@@ -6,6 +6,9 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
+
+     unsigned short int atributo;
+
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
 
@@ -131,20 +134,156 @@ int main() {
     printf("Super Poder:                    %.2f\n",           superPoder2        );
 
     printf("\n-----------------------------------------------------------\n");
-    printf("******* COMPARAÇÂO DE CARTAS (Atributo: População): *******\n");
+    printf("****************** COMPARAÇÂO DE CARTAS: ******************\n");
     printf("-----------------------------------------------------------\n\n");
 
-    printf("Carta 1 - %s (%c%s): %lu\n", nome1, estado1, codigo1, populacao1);
-    printf("Carta 2 - %s (%c%s): %lu\n", nome2, estado2, codigo2, populacao2);
+    printf("Escolha um atributo para comparação:\n");
+    printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
 
-    printf("-----------------------------------------------------------\n");
+    printf("Digite 1 para População\n");
+    printf("Digite 2 para Área total\n");
+    printf("Digite 3 para PIB\n");
+    printf("Digite 4 para Pontos Turísticos\n");
+    printf("Digite 5 para Densidade Demográfica\n");
+    printf("Digite 6 para PIB per Capta\n");
+    printf("Digite 7 para Super Poder\n");
+
+    printf("\nDigite uma opção: ");
+    scanf("%hu", &atributo);
     
-    if (populacao1 > populacao2)
+    printf("\n\n");
+
+    switch (atributo)
     {
-        printf("Resultado: Carta 1 (%s) venceu!", nome1);
-    }else
-    {
-        printf("RESULTADO: Carta 2 (%s) venceu!", nome2);
+        case 1:
+            printf("O Atributo escolhido foi: POPULAÇÃO\n");
+            printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+    
+            printf("Carta 1 - %s (%c%s): %lu\n", nome1, estado1, codigo1, populacao1);
+            printf("Carta 2 - %s (%c%s): %lu\n", nome2, estado2, codigo2, populacao2);
+            
+            printf("-----------------------------------------------------------\n");
+            
+            if (populacao1 > populacao2) 
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", nome1); }
+            else if (populacao1 == populacao2)
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", nome1, nome2); }
+            else 
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", nome2); }
+
+            break;
+        
+        case 2:
+            printf("O Atributo escolhido foi: ÁREA\n");
+            printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+
+            printf("Carta 1 - %s (%c%s): %.2f\n", nome1, estado1, codigo1, area1);
+            printf("Carta 2 - %s (%c%s): %.2f\n", nome2, estado2, codigo2, area2);
+            
+            printf("-----------------------------------------------------------\n");
+            
+            if (area1 > area2) 
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", nome1); }
+            else if (area1 == area2)
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", nome1, nome2); }
+            else  
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", nome2); }
+
+            break;
+        
+        case 3:
+            printf("O Atributo escolhido foi: PIB\n");
+            printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+
+            printf("Carta 1 - %s (%c%s): %.2f\n", nome1, estado1, codigo1, pib1);
+            printf("Carta 2 - %s (%c%s): %.2f\n", nome2, estado2, codigo2, pib2);
+            
+            printf("-----------------------------------------------------------\n");
+            
+            if (pib1 > pib2) 
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", nome1); }
+            else if (pib1 == pib2)
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", nome1, nome2); }
+            else 
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", nome2); }
+
+            break;
+        
+        case 4:
+            printf("O Atributo escolhido foi: PONTOS TURÍSTICOS\n");
+            printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+
+            printf("Carta 1 - %s (%c%s): %d\n", nome1, estado1, codigo1, atracoes1);
+            printf("Carta 2 - %s (%c%s): %d\n", nome2, estado2, codigo2, atracoes2);
+            
+            printf("-----------------------------------------------------------\n");
+            
+            if (atracoes1 > atracoes2) 
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", nome1); }
+            else if (atracoes1 == atracoes2)
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", nome1, nome2); }
+            else 
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", nome2); }
+
+            break;
+        
+        case 5:
+            printf("O Atributo escolhido foi: DENSIDADE DEMOGRÁFICA\n");
+            printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+
+            printf("Carta 1 - %s (%c%s): %.2f\n", nome1, estado1, codigo1, densidade1);
+            printf("Carta 2 - %s (%c%s): %.2f\n", nome2, estado2, codigo2, densidade2);
+            
+            printf("-----------------------------------------------------------\n");
+            
+            if (densidade1 < densidade2) 
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", nome1); }
+            else if (densidade1 == densidade2)
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", nome1, nome2); }
+            else 
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", nome2); }
+
+            break;
+        
+        case 6:
+            printf("O Atributo escolhido foi: PIB PER CAPTA\n");
+            printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+
+            printf("Carta 1 - %s (%c%s): %.2f\n", nome1, estado1, codigo1, pibPerCapta1);
+            printf("Carta 2 - %s (%c%s): %.2f\n", nome2, estado2, codigo2, pibPerCapta2);
+            
+            printf("-----------------------------------------------------------\n");
+            
+            if (pibPerCapta1 > pibPerCapta2) 
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", nome1); }
+            else if (pibPerCapta1 == pibPerCapta2)
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", nome1, nome2); }
+            else 
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", nome2); }
+
+            break;
+        
+        case 7:
+            printf("O Atributo escolhido foi: SUPER PODER\n");
+            printf("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n\n");
+
+            printf("Carta 1 - %s (%c%s): %.2f\n", nome1, estado1, codigo1, superPoder1);
+            printf("Carta 2 - %s (%c%s): %.2f\n", nome2, estado2, codigo2, superPoder2);
+            
+            printf("-----------------------------------------------------------\n");
+            
+            if (superPoder1 > superPoder2) 
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", nome1); }
+            else if (superPoder1 == superPoder2)
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", nome1, nome2); }
+            else 
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", nome2); }
+
+            break;
+        
+        default:
+            printf("*** Atributo inválido ***");
+            break;
     }
     
     printf("\n\n===========================================================\n");
