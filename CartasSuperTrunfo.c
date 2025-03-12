@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 struct CartasSuperTrunfo
 {
@@ -7,7 +8,7 @@ struct CartasSuperTrunfo
     char nome[50];
     unsigned long int populacao;
     float area;
-    float pib;
+    double pib;
     int atracoes;
     float pibPerCapta;
     float densidade;
@@ -34,7 +35,7 @@ void cadastrarCarta(struct CartasSuperTrunfo *carta, int numCarta) {
     scanf("%f", &carta->area);
 
     printf("Informe o PIB da cidade: ");
-    scanf("%f", &carta->pib);
+    scanf("%lf", &carta->pib);
 
     printf("Informe o número de pontos turísticos na cidade: ");
     scanf("%d", &carta->atracoes);
@@ -61,7 +62,7 @@ void exibirResultado(struct CartasSuperTrunfo carta, int numCarta) {
 }
 
 // Função para exibir o resultado da comparação
-void compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct CartasSuperTrunfo carta2) {
+int compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct CartasSuperTrunfo carta2) {
 
     switch (atributo)
     {
@@ -73,11 +74,11 @@ void compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct Cart
             printf("-----------------------------------------------------------\n");
 
             if (carta1.populacao > carta2.populacao)
-            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); return 1; }
             else if (carta1.populacao == carta2.populacao)
-            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); return 0; }
             else 
-            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); }
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); return 2; }
 
             break;
 
@@ -89,27 +90,27 @@ void compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct Cart
             printf("-----------------------------------------------------------\n");
 
             if (carta1.area > carta2.area)
-            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); return 1; }
             else if (carta1.area == carta2.area)
-            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); return 0; }
             else 
-            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); }
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); return 2; }
 
             break;
 
         case 3:
             printf("O Atributo escolhido foi: PIB\n");
 
-            printf("Carta 1 - %s (%c%s): %.2f\n", carta1.nome, carta1.estado, carta1.codigo, carta1.pib);
-            printf("Carta 2 - %s (%c%s): %.2f\n", carta2.nome, carta2.estado, carta2.codigo, carta2.pib);
+            printf("Carta 1 - %s (%c%s): %.2lf\n", carta1.nome, carta1.estado, carta1.codigo, carta1.pib);
+            printf("Carta 2 - %s (%c%s): %.2lf\n", carta2.nome, carta2.estado, carta2.codigo, carta2.pib);
             printf("-----------------------------------------------------------\n");
 
             if (carta1.pib > carta2.pib)
-            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); return 1; }
             else if (carta1.pib == carta2.pib)
-            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); return 0; }
             else
-            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); }
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); return 2; }
 
             break;
 
@@ -121,11 +122,11 @@ void compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct Cart
             printf("-----------------------------------------------------------\n");
 
             if (carta1.atracoes > carta2.atracoes)
-            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); return 1; }
             else if (carta1.atracoes == carta2.atracoes)
-            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); return 0; }
             else 
-            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); }
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); return 2; }
 
             break;
 
@@ -137,11 +138,11 @@ void compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct Cart
             printf("-----------------------------------------------------------\n");
 
             if (carta1.densidade < carta2.densidade)
-            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); return 1; }
             else if (carta1.densidade == carta2.densidade)
-            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); return 0; }
             else
-            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); }
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); return 2; }
 
             break;
 
@@ -153,11 +154,11 @@ void compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct Cart
             printf("-----------------------------------------------------------\n");
 
             if (carta1.pibPerCapta > carta2.pibPerCapta)
-            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); return 1; }
             else if (carta1.pibPerCapta == carta2.pibPerCapta)
-            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); return 0; }
             else 
-            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); }
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); return 2; }
 
             break;
 
@@ -169,11 +170,11 @@ void compararAtributo(int atributo, struct CartasSuperTrunfo carta1, struct Cart
             printf("-----------------------------------------------------------\n");
 
             if (carta1.superPoder > carta2.superPoder)
-            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) VENCEU! #####", carta1.nome); return 1; }
             else if (carta1.superPoder == carta2.superPoder)
-            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); }
+            { printf("##### RESULTADO: CARTA 1 (%s) E CARTA 2 (%s) EMPATARAM! #####", carta1.nome, carta2.nome); return 0; }
             else 
-            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); }
+            { printf("##### RESULTADO: CARTA 2 (%s) VENCEU! #####", carta2.nome); return 2; }
 
             break;
         
@@ -193,9 +194,7 @@ int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     struct CartasSuperTrunfo carta1, carta2;
-    unsigned short int primeiroAtributo = 0;
-    unsigned short int segundoAtributo = 0;
-
+    unsigned short int primeiroAtributo = 0, segundoAtributo = 0, result1 = 0, result2 = 0, pontosCarta1 = 0, pontosCarta2 = 0;
 
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -211,6 +210,30 @@ int main() {
     printf("\n-----------------------------------------------------------\n\n");
     cadastrarCarta(&carta2, 2);
 
+    // São Paulo (SP)
+    // carta1.estado           = 'A';
+    // strcpy(carta1.codigo, "01");
+    // strcpy(carta1.nome, "São Paulo");
+    // carta1.populacao        = 11450000;
+    // carta1.area             = 1521.11;
+    // carta1.pib              = 2719751000000;
+    // carta1.atracoes         = 20;
+    // carta1.pibPerCapta      = carta1.pib / (float)carta1.populacao;
+    // carta1.densidade        = (float)carta1.populacao / carta1.area;
+    // carta1.superPoder       = (float)carta1.populacao + carta1.pib + carta1.pibPerCapta + (float)carta1.atracoes + carta1.densidade;
+
+    // // Rio de Janeiro (RJ)
+    // carta2.estado           = 'B';
+    // strcpy(carta2.codigo, "02");
+    // strcpy(carta2.nome, "Rio de Janeiro");
+    // carta2.populacao        = 6748000;
+    // carta2.area             = 1182.30;
+    // carta2.pib              = 413600000000;
+    // carta2.atracoes         = 25;
+    // carta2.pibPerCapta      = carta2.pib / (float)carta2.populacao;
+    // carta2.densidade        = (float)carta2.populacao / carta2.area;
+    // carta2.superPoder       = (float)carta2.populacao + carta2.pib + carta2.pibPerCapta + (float)carta2.atracoes + carta2.densidade;
+        
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
@@ -264,10 +287,38 @@ int main() {
     } while (primeiroAtributo < 1 || primeiroAtributo > 7 || primeiroAtributo == segundoAtributo || segundoAtributo == 0 || segundoAtributo < 1 || segundoAtributo > 7);
 
     printf("\n\n>>> COMPARANDO O PRIMEIRO ATRIBUTO:\n");
-    compararAtributo(primeiroAtributo, carta1, carta2);
+    result1 = compararAtributo(primeiroAtributo, carta1, carta2);
 
     printf("\n\n>>> COMPARANDO O SEGUNDO ATRIBUTO:\n");
-    compararAtributo(segundoAtributo, carta1, carta2);
+    result2 = compararAtributo(segundoAtributo, carta1, carta2);
+
+    // Contabiliza os pontos da primeira rodada
+    if (result1 == 1) pontosCarta1++;
+    else if (result1 == 2) pontosCarta2++;
+
+    // Contabiliza os pontos da segunda rodada
+    if (result2 == 1) pontosCarta1++;
+    else if (result2 == 2) pontosCarta2++;
+
+    // Verifica o vencedor final
+    if (pontosCarta1 > pontosCarta2) {
+        printf("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>> ** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+        printf("********************** RESULTADO FINAL *********************\n");    
+        printf("****************** A CARTA 1 É A VENCEDORA *****************\n");
+        printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>> ** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+    }
+    else if (pontosCarta1 < pontosCarta2) {
+        printf("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>> ** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+        printf("********************** RESULTADO FINAL *********************\n");    
+        printf("****************** A CARTA 2 É A VENCEDORA *****************\n");
+        printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>> ** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+    }
+    else { // Empate    
+        printf("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>> ** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+        printf("********************** RESULTADO FINAL *********************\n");    
+        printf("***************** AS CARTAS 1 E 2 EMPATARAM ****************\n");
+        printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>> ** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+    } 
 
     printf("\n\n======================= FIM DO JOGO =======================\n\n");
     return 0;
